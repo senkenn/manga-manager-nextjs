@@ -1,0 +1,14 @@
+{
+  "Testcase": {
+    "prefix": "testcase",
+    "body": [
+      "test('$1', async () => {",
+      "  /* ------------------------------ Test preprocessing ------------------------------- */",
+      "  /* ------------------------ Execute the function under test ------------------------ */",
+      "  /* ------------------------------- Evaluation Items -------------------------------- */",
+      "});"
+    ],
+    "description": "Test Case",
+    "scope": "javascript,typescript"
+  }
+}

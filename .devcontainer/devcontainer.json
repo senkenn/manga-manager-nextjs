@@ -1,0 +1,32 @@
+{
+  "name": "${localWorkspaceFolderBasename}",
+  "service": "app",
+  "dockerComposeFile": "../compose.yaml",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      // do not define settings here because it is do not apply to locally workspace
+      "extensions": [
+        // common in any project
+        "ms-azuretools.vscode-docker",
+        "mhutchie.git-graph",
+        "eamodio.gitlens",
+        "streetsidesoftware.code-spell-checker",
+        "fabiospampinato.vscode-todo-plus",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "mike-co.import-sorter",
+        "ms-azuretools.vscode-docker",
+        "DavidAnson.vscode-markdownlint",
+        "GitHub.vscode-pull-request-github",
+        "humao.rest-client",
+        "chamboug.js-auto-backticks",
+        // coding assistant
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        // specially in this project
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "name": "manga-manager",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "./src/external/cdk"
+  ],
+  "scripts": {
+    "install:all": "yarn && yarn workspace cdk install",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "prettier . --write && eslint . --fix",
+    "test": "vitest",
+    "coverage": "vitest",
+    "awslocal": "AWS_ACCESS_KEY_ID=dummy AWS_SECRET_ACCESS_KEY=dummy AWS_REGION=us-east-1 aws --endpoint-url=http://localstack-manga-manager:4566",
+    "localtest": "AWS_ACCESS_KEY_ID=dummy AWS_SECRET_ACCESS_KEY=dummy AWS_REGION=us-east-1 DATABASE_URL=http://localstack-manga-manager:4566 ts-node -r tsconfig-paths/register ./src/localtest.ts"
+  },
+  "dependencies": {
+    "@auth/dynamodb-adapter": "^1.0.0",
+    "@aws-sdk/client-dynamodb": "^3.363.0",
+    "@aws-sdk/lib-dynamodb": "^3.363.0",
+    "@types/node": "20.3.3",
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
+    "autoprefixer": "10.4.14",
+    "aws-crt": "^1.15.20",
+    "axios": "^1.4.0",
+    "eslint-config-next": "13.4.7",
+    "next": "13.4.7",
+    "next-auth": "^4.22.1",
+    "postcss": "8.4.24",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-draggable": "^4.4.5",
+    "recoil": "^0.7.7",
+    "tailwindcss": "3.3.2",
+    "typescript": "5.1.6",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^13.4.13",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
+    "eslint": "^8.44.0",
+    "eslint-gitignore": "^0.1.0",
+    "eslint-plugin-jsdoc": "^46.4.6",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "prettier": "^3.0.1",
+    "tsconfig-paths": "^4.2.0",
+    "vite-tsconfig-paths": "^4.2.0",
+    "vitest": "^0.33.0"
+  },
+  "engines": {
+    "node": "18",
+    "npm": "Do not use!",
+    "yarn": "1.22",
+    "pnpm": "Do not use!"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/**/*.{ts,tsx}": "yarn lint"
+  }
+}

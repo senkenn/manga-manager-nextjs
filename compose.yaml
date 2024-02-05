@@ -1,0 +1,28 @@
+services:
+  app:
+    container_name: manga-manager
+    build:
+      context: .devcontainer
+    tty: true
+    volumes:
+      - ./:/workspace
+      - $HOME/.aws/:/root/.aws/
+      - .devcontainer/.zshrc:/root/.zshrc
+      - .devcontainer/.p10k.zsh:/root/.p10k.zsh
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 3000:3000
+
+  localstack:
+    container_name: '${LOCALSTACK_DOCKER_NAME-localstack-manga-manager}'
+    image: localstack/localstack:2.1
+    ports:
+      - '127.0.0.1:4566:4566' # LocalStack Gateway
+      - '127.0.0.1:4510-4559:4510-4559' # external services port range
+    environment:
+      - DEBUG=${DEBUG-}
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - '${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack'
+      - .devcontainer/localstack/init:/etc/localstack/init/ready.d
+      - .devcontainer/localstack/data:/tmp/localstack # Data persistence
