@@ -11,7 +11,7 @@
 - CI/CD: GitHub Actions
 - IaC: AWS CDK
 
-## Develop Tools
+## Development Tools
 
 - Docker outside of Docker
 - Package Manager: Yarn
